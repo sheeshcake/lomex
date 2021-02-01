@@ -12,7 +12,11 @@ use Illuminate\Support\Facades\Hash;
 class LoginController extends Controller
 {
     public function showLogin(){
-        return View::make('login');
+        if(Auth::check()){
+            return redirect('dashboard');
+        }else{
+            return View::make('login');
+        }
     }
     public function doLogin(Request $request){
         $rules = array(

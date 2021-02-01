@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,7 +13,7 @@ class UserController extends Controller
     }
 
     public function showDashboard(){
-        echo "<a href='logout'>Logout</a>";
+        return view('home');
     }
 
     public function logout(Request $request){

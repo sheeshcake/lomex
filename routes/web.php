@@ -16,13 +16,13 @@ use App\Http\Controllers\UserController;
 */
 Route::get('/dashboard', ['middleware' => 'auth', 'uses' => 'UserController@showDashboard']);
 
-Route::get('/logout', array('uses' => 'LogoutController@logout'));
+Route::get('/logout', array('uses' => 'UserController@logout'));
 
-Route::get('/register', array('uses' => 'RegisterController@showRegister'));
+Route::get('/register', ['uses' => 'RegisterController@showRegister']);
 
 Route::post('/register', array('uses' => 'RegisterController@doRegister'))->name('register');
 
-Route::get('/login', array('uses' => 'LoginController@showLogin'));
+Route::get('/login', ['uses' => 'LoginController@showLogin']);
 
 Route::post('/login', array('uses' => 'LoginController@doLogin'))->name('login');
 

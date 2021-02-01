@@ -6,12 +6,18 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
+
     public function showRegister(){
-        return View::make('register');
+        if(Auth::check()){
+            return redirect('dashboard');
+        }else{
+            return View::make('login');
+        }
     }
     public function doRegister(Request $request){
         $rules = array(
