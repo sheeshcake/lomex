@@ -20,12 +20,12 @@
         <li class="nav-item">
             <a class="nav-link" href="?p=transaction-new">
                 <i class="fa fa-exchange" aria-hidden="true"></i>  
-                <span>Transaction</span></a>
+                <span>Posts</span></a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="?p=return">
             <i class="fa fa-comments-o" aria-hidden="true"></i>  
-                <span>Customer Concern</span></a>
+                <span>Products</span></a>
         </li>
         <!-- Divider -->
         <hr class="sidebar-divider">
