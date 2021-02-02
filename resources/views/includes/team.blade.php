@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col ml-auto">
                 <div class="team-member">
-                    <img class="mx-auto rounded-circle" src="/img/team/1.png" alt="" />
+                    <img class="mx-auto rounded-circle" src="{{url('/img/team/1.png') }}" alt="" />
                     <h4>Othelo Adiong</h4>
                     <p class="text-muted">CEO</p>
                     <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/lomextireshoppepylon"><i class="fab fa-facebook-f"></i></a>
@@ -16,7 +16,7 @@
             </div>
             <div class="col mr-auto">
                 <div class="team-member">
-                    <img class="mx-auto rounded-circle" src="/img/team/2.png" alt="" />
+                    <img class="mx-auto rounded-circle" src="{{url('/img/team/2.png') }}" alt="" />
                     <h4>Stephanie Adiong</h4>
                     <p class="text-muted">CFO</p>
                     <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/stephanie.adiong/"><i class="fab fa-facebook-f"></i></a>

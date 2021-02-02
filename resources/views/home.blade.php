@@ -34,6 +34,9 @@
             <!-- Begin Page Content -->
             <div class="container-fluid" style = "overflow-y: auto;">
                 <!-- Page Heading -->
+                @if (app('request')->input('p'))
+                    @include('includes/' . app('request')->input('p'))
+                @endif
             </div>
             <!-- /.container-fluid -->
 

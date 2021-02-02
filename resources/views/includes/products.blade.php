@@ -11,7 +11,7 @@
                     <b class="card-subtitle mb-2 text-muted">All-Season | 60K Mi. Tread Life Ltd. Warranty</b>
                     <hr>
                     <div class="card-product d-flex mb-3" >
-                        <img src="/img/products/dunlop-grandtrek-at20.png" alt="" class="product-image">
+                        <img src="{{url('/img/products/dunlop-grandtrek-at20.png') }}" alt="" class="product-image">
                         <p class="product-desc">Drive your luxury SUV in quiet comfort.</p>
                     </div>
                     <hr>
@@ -27,7 +27,7 @@
                     <b class="card-subtitle mb-2 text-muted">All-Season | 60K Mi. Tread Life Ltd. Warranty</b>
                     <hr>
                     <div class="card-product d-flex mb-3" >
-                        <img src="/img/products/dunlop-grandtrek-at20.png" alt="" class="product-image">
+                        <img src="{{url('/img/products/dunlop-grandtrek-at20.png') }}" alt="" class="product-image">
                         <p class="product-desc">Drive your luxury SUV in quiet comfort.</p>
                     </div>
                     <hr>
@@ -43,7 +43,7 @@
                     <b class="card-subtitle mb-2 text-muted">All-Season | 60K Mi. Tread Life Ltd. Warranty</b>
                     <hr>
                     <div class="card-product d-flex mb-3" >
-                        <img src="/img/products/dunlop-grandtrek-at20.png" alt="" class="product-image">
+                        <img src="{{url('/img/products/dunlop-grandtrek-at20.png') }}" alt="" class="product-image">
                         <p class="product-desc">Drive your luxury SUV in quiet comfort.</p>
                     </div>
                     <hr>
@@ -59,7 +59,7 @@
                     <b class="card-subtitle mb-2 text-muted">All-Season | 60K Mi. Tread Life Ltd. Warranty</b>
                     <hr>
                     <div class="card-product d-flex mb-3" >
-                        <img src="/img/products/dunlop-grandtrek-at20.png" alt="" class="product-image">
+                        <img src="{{url('/img/products/dunlop-grandtrek-at20.png') }}" alt="" class="product-image">
                         <p class="product-desc">Drive your luxury SUV in quiet comfort.</p>
                     </div>
                     <hr>
@@ -75,7 +75,7 @@
                     <b class="card-subtitle mb-2 text-muted">All-Season | 60K Mi. Tread Life Ltd. Warranty</b>
                     <hr>
                     <div class="card-product d-flex mb-3" >
-                        <img src="/img/products/dunlop-grandtrek-at20.png" alt="" class="product-image">
+                        <img src="{{url('/img/products/dunlop-grandtrek-at20.png') }}" alt="" class="product-image">
                         <p class="product-desc">Drive your luxury SUV in quiet comfort.</p>
                     </div>
                     <hr>

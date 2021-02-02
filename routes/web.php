@@ -14,17 +14,16 @@ use App\Http\Controllers\UserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/dashboard', ['middleware' => 'auth', 'uses' => 'UserController@showDashboard']);
 
-Route::get('/logout', array('uses' => 'UserController@logout'));
-
-Route::get('/register', ['uses' => 'RegisterController@showRegister']);
-
-Route::post('/register', array('uses' => 'RegisterController@doRegister'))->name('register');
-
-Route::get('/login', ['uses' => 'LoginController@showLogin']);
-
-Route::post('/login', array('uses' => 'LoginController@doLogin'))->name('login');
+Route::group(["prefix" => "dashboard"],function () {
+    Route::get('/', ['uses' => 'UserController@showDashboard']);
+    Route::get('/posts', ['uses' => 'UserController@showHello']);
+    Route::get('/products', ['uses' => 'UserController@showHello']);
+    Route::get('/hello', ['uses' => 'UserController@showHello']);
+    Route::get('/logout', ['uses' => 'UserController@logout']);
+});
+Route::match(['get', 'post'], '/register', "RegisterController@registerController")->name('register');
+Route::match(['get', 'post'], '/login', "LoginController@loginController")->name('login');
 
 Route::get('/', function () {
     return view('welcome');
