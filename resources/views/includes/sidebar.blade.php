@@ -18,7 +18,7 @@
                 <span>Dashboard</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="?p=posts">
+            <a class="nav-link" href="?p=getposts">
                 <i class="fa fa-newspaper-o" aria-hidden="true"></i>
                 <span>Posts</span></a>
         </li>

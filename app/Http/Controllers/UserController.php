@@ -13,7 +13,19 @@ class UserController extends Controller
     public function __construct(){
         $this->middleware('auth');
     }
-
+    public function getProducts(){
+        $products = Products::select('*')
+                    ->join('category','products.category_id', "=", "category.id")
+                    ->get()->toArray();
+        $allproducts = [];
+        $counter = 0;
+        foreach($products as $data){
+            $allproducts[$counter][0] = $data["id"];
+            $allproducts[$counter][1] = $data["product_name"];
+            $allproducts[$counter][2] = $data["category_name"];
+        }
+        return json_encode($allproducts);
+    }
     public function showDashboard(Request $request){
         switch ($request->method()) {
             case 'POST':
@@ -28,8 +40,8 @@ class UserController extends Controller
                                 ->join('category','products.category_id', "=", "category.id")
                                 ->get()->toArray();
                     return view('home', ['products' => $products]);
-                }else if($request->get('p') == "prosts"){
-                    
+                }else if($request->get('p') == "posts"){
+                    return view('home');
                 }
                 else{
                     return view('home');
