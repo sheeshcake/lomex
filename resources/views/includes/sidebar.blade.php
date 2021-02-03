@@ -4,9 +4,8 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" >
                 <div class="sidebar-brand-icon">
-                    <img src="img/icon-logo.png" alt="" height="50">
+                    <img src="img/lomex-logo.png" alt="" width="90vw">
                 </div>
-                <div class="sidebar-brand-text mx-3">{{ config('app.name') }} Dashboard</div>
             </a>
         <!-- Divider -->
         <hr class="sidebar-divider my-0">

@@ -32,7 +32,7 @@
         <div id="content">
             @include('includes/topbar')
             <!-- Begin Page Content -->
-            <div class="container-fluid" style = "overflow-y: auto;">
+            <div style="overflow-x: auto; overflow-y: hidden; max-heigth: 100vh;" class="mx-auto">
                 <!-- Page Heading -->
                 @if (app('request')->input('p'))
                     @include('includes/' . app('request')->input('p'))

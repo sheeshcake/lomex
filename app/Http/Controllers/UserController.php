@@ -13,18 +13,41 @@ class UserController extends Controller
     public function __construct(){
         $this->middleware('auth');
     }
-    public function getProducts(){
-        $products = Products::select('*')
+    public function updateProduct(Request $request){
+        switch ($request->method()) {
+            case 'POST':
+                break;
+            case 'GET':
+                $products = Products::select('*')
                     ->join('category','products.category_id', "=", "category.id")
+                    ->join('images', 'images.product_id', "=", "products.id")
                     ->get()->toArray();
-        $allproducts = [];
-        $counter = 0;
-        foreach($products as $data){
-            $allproducts[$counter][0] = $data["id"];
-            $allproducts[$counter][1] = $data["product_name"];
-            $allproducts[$counter][2] = $data["category_name"];
+                return view('home', ['products' => $products]);
+                break;
+            default:
+                return redirect(\URL::previous());
+                break;
         }
-        return json_encode($allproducts);
+    }
+    public function getProducts(Request $request){
+        if($request->ajax()){
+            $products = Products::select('*')
+                        ->join('category','products.category_id', "=", "category.id")
+                        ->join('images', 'images.product_id', "=", "products.id")
+                        ->get()->toArray();
+            $allproducts = [];
+            $counter = 0;
+            foreach($products as $data){
+                $allproducts[$counter][0] = $data["id"];
+                $allproducts[$counter][1] = $data["image_source"];
+                $allproducts[$counter][2] = $data["product_name"];
+                $allproducts[$counter][3] = $data["category_name"];
+                $counter++;
+            }
+            return json_encode($allproducts);
+        }else{
+            return redirect(\URL::previous());
+        }
     }
     public function showDashboard(Request $request){
         switch ($request->method()) {
@@ -40,6 +63,13 @@ class UserController extends Controller
                                 ->join('category','products.category_id', "=", "category.id")
                                 ->get()->toArray();
                     return view('home', ['products' => $products]);
+                }else if($request->get('p') == "editproduct"){
+                    $products = Products::select('*')
+                        ->join('category','products.category_id', "=", "category.id")
+                        ->join('images', 'images.product_id', "=", "products.id")
+                        ->where("products.id", "=", $request->get('id'))
+                        ->get()->toArray();
+                    return view('home', ['products' => $products]);
                 }else if($request->get('p') == "posts"){
                     return view('home');
                 }
@@ -49,7 +79,7 @@ class UserController extends Controller
                 break;
     
             default:
-                // invalid request
+                return redirect(\URL::previous());
                 break;
         }
     }

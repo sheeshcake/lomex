@@ -17,7 +17,8 @@ use App\Http\Controllers\UserController;
 
 Route::group(["prefix" => "dashboard"],function () {
     Route::get('/', ['uses' => 'UserController@showDashboard']);
-    Route::get('/products', ['uses' => 'UserController@getProducts']);
+    Route::match(['get', 'post'], '/products', "UserController@getProducts")->name('products');
+    // Route::match(['get', 'post'], '/editproduct', "UserController@updateProduct")->name('editproduct');
     Route::get('/logout', ['uses' => 'UserController@logout']);
 });
 Route::match(['get', 'post'], '/register', "RegisterController@registerController")->name('register');
