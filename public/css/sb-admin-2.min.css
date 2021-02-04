@@ -1615,11 +1615,51 @@ tbody tr:hover {
 }
 
 
+/* Changing the file input button */
+
+.browse {
+    display: inline-block;
+    position: relative;
+}
+
+.browse-file {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    text-align: right;
+    opacity: 0;
+    z-index: 2;
+}
+
+.browse-file-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.browse-file-img .browse .browse-file:hover {
+    cursor: pointer;
+}
+
+
+/* sticky crumb */
+
+.sticky {
+    transition: transform .5s;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+
 /* Adding some Header get Prodcuts */
 
 .page-header {
     position: relative;
     top: 0;
+    z-index: 0;
     height: 30vh;
     background-repeat: no-repeat;
     background-position: center center;
@@ -1627,17 +1667,16 @@ tbody tr:hover {
     background-size: 100% 500% !important;
 }
 
-.page-caption {
-    padding-top: 170px;
-    padding-bottom: 174px;
+.product-breadcrumb {
+    position: absolute;
 }
 
-.page-title {
-    font-size: 46px;
-    line-height: 1;
-    color: #fff;
-    font-weight: 600;
+.product-name {
+    position: absolute;
+    left: 25vw;
+    top: 20vh;
     text-align: center;
+    color: #fff;
 }
 
 .card-section {
@@ -1937,6 +1976,12 @@ tbody tr:hover {
     background-color: rgba(255, 255, 255, .075)
 }
 
+.main-content-wrapper {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-left: 6.5rem;
+}
+
 @media (max-width:575.98px) {
     .table-responsive-sm {
         display: block;
@@ -1950,6 +1995,10 @@ tbody tr:hover {
 }
 
 @media (max-width:767.98px) {
+    .main-content-wrapper {
+        overflow-x: auto;
+        padding-left: 0;
+    }
     .table-responsive-md {
         display: block;
         width: 100%;
@@ -6992,9 +7041,10 @@ button.bg-dark:hover {
     content: ""
 }
 
-.d-none {
+
+/* .d-none {
     display: none!important
-}
+} */
 
 .d-inline {
     display: inline!important

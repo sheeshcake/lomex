@@ -12,6 +12,7 @@
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
+    <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
@@ -32,7 +33,7 @@
         <div id="content">
             @include('includes/topbar')
             <!-- Begin Page Content -->
-            <div style="overflow-x: auto; overflow-y: hidden; max-heigth: 100vh;" class="mx-auto">
+            <div class="mx-auto main-content-wrapper">
                 <!-- Page Heading -->
                 @if (app('request')->input('p'))
                     @include('includes/' . app('request')->input('p'))
