@@ -19,6 +19,12 @@ class CreateBrandTable extends Migration
             $table->string('brand_img');
             $table->timestamps();
         });
+        DB::table('brand')->insert(
+            array(
+                'brand_name' => '',
+                'brand_img' => ''
+            )
+        );
     }
 
     /**

@@ -3,6 +3,8 @@
         <li class="breadcrumb-item"><a href="?p=getproducts">Products</a></li>
         <li class="breadcrumb-item active" aria-current="page">{{ $products[0]["product_name"] }}</li>
     </ol>
+    <div class="alert" id="product-alert" style="display: none">
+    </div>
 </div>
 
 <div class="page-header" style="background-image: url(img/products/{{ $products[0]['image_source'] }});">
@@ -10,7 +12,9 @@
 <div class="product-name">
     <h2><b id="p-name">{{ $products[0]["product_name"] }}</b></h2>
 </div>
-<form action="">
+<form id="product_form">
+@csrf
+<input type="number" name="id" value="{{ $products[0]['product_id'] }}" hidden>
 <div class="card" style="border-radius: 0 !important;">
     <div class="card-section overflow-auto">
         <div class="container">
@@ -48,13 +52,13 @@
                             <div class="col">
                                 <div class="form-group mx-1">
                                     <label for="p-nameinput">Product Name</label>
-                                    <input class="form-control" id="p-nameinput" type="text" value="{{ $products[0]['product_name'] }}">
+                                    <input class="form-control" id="p-nameinput" name="p_name" type="text" value="{{ $products[0]['product_name'] }}">
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="form-group mx-1">
                                     <label for="p-ribboninput">Ribbon</label>
-                                    <input class="form-control"id="p-ribboninput" type="text" placeholder="eg., New Item.">
+                                    <input class="form-control"id="p-ribboninput" name="p_ribbon" type="text" placeholder="eg., New Item." value="{{ $products[0]['product_ribbon'] }}">
                                 </div>
                             </div>
                         </div>
@@ -64,7 +68,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="price-icon">₱</span>
                                 </div>
-                                <input type="number" class="form-control" id="p-priceinput" placeholder="Price" aria-label="Price" aria-describedby="price-icon">
+                                <input type="number" class="form-control" id="p-priceinput" name="p_price" placeholder="Price" aria-label="Price" aria-describedby="price-icon" value="{{ $products[0]['product_price'] }}">
                             </div>
                         </div>
                         <div class="custom-control custom-switch mx-1 mb-3">
@@ -75,7 +79,7 @@
                             <div class="col">
                                 <label class="mx-1" for="p-discountinput">Discount</label>
                                 <div class="input-group mb-3 mx-1">
-                                    <input type="number" class="form-control" id="p-discountinput" placeholder="Discount" aria-label="Discount" aria-describedby="discount-icon">
+                                    <input type="number" class="form-control" id="p-discountinput" name="p_discount" placeholder="Discount" aria-label="Discount" aria-describedby="discount-icon" value="{{ $products[0]['product_discount'] }}">
                                     <div class="input-group-append">
                                         <span class="input-group-text" id="discount-icon">%</span>
                                     </div>
@@ -87,7 +91,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="price-icon">₱</span>
                                     </div>
-                                    <input type="number" class="form-control" id="p-priceinput" placeholder="Price" aria-label="Price" aria-describedby="price-icon">
+                                    <input type="number" class="form-control" id="p-priceinput" name="p_sale_price" placeholder="Price" aria-label="Price" aria-describedby="price-icon" value="{{ $products[0]['product_sale_price'] }}">
                                 </div>
                             </div>
                         </div>
@@ -99,7 +103,7 @@
                             <div class="col">
                                 <label class="mx-1" for="p-quantityunit">Total Product Quantity in Units</label>
                                 <div class="input-group mb-3 mx-1">
-                                    <input type="number" class="form-control" id="p-quantityunit" placeholder="Discount" aria-label="Discount" aria-describedby="discount-icon">
+                                    <input type="number" class="form-control" id="p-quantityunit" placeholder="Discount" aria-label="Discount" aria-describedby="discount-icon" name="p_quantity_in_units" value="{{ $products[0]['product_quantity_in_units'] }}">
                                     <div class="input-group-append">
                                         <span class="input-group-text" id="discount-icon">%</span>
                                     </div>
@@ -111,7 +115,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="price-icon">₱</span>
                                     </div>
-                                    <input type="number" class="form-control" id="p-baseunitinput" placeholder="Price" aria-label="Price" aria-describedby="price-icon">
+                                    <input type="number" class="form-control" id="p-baseunitinput" placeholder="Price" aria-label="Price" aria-describedby="price-icon" name="p_base_unit" value="{{ $products[0]['product_base_unit'] }}">
                                 </div>
                             </div>
                             <div class="w-25">
@@ -126,7 +130,8 @@
                         </div>
                         <div class="form-group mx-1">
                             <label for="p-descriptioninput">Description</label>
-                            <textarea class="form-control" id="p-descriptioninput" name="description"></textarea>
+                            <textarea name="editor">{!! $products[0]['product_description'] !!}</textarea>
+                            <textarea hidden class="form-control" id="p-descriptioninput" name="p_description" value="{{ $products[0]['product_description'] }}"></textarea>
                         </div>
                     </div>
                     <div class="card-footer text-muted">
@@ -145,7 +150,24 @@
 </div>
 </form>
 <script>
-    CKEDITOR.replace('description');
+    var $editor = CKEDITOR.replace( 'editor' );
+    $("#product_form").submit(function(e){
+        e.preventDefault();
+        $("#p-descriptioninput").val(CKEDITOR.instances.editor.getData());
+        $.ajax({
+            url: '{{ url("dashboard/editproduct") }}', 
+            type: 'post',
+            data: $(this).serialize(),
+            success: function(d){
+                $("#product-alert").addClass("alert-" + d["status"]);
+                $("#product-alert").text(d["msg"]);
+                $("#product-alert").slideDown(500);
+                setTimeout(function () {
+                    $("#product-alert").slideUp(500);
+                }, 5000);
+            }
+        });
+    });
     $("#p-nameinput").on("input", function(){
         $("#p-name").text($(this).val());
     });

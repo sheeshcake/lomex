@@ -18,6 +18,11 @@ class CreateCategoryTable extends Migration
             $table->string('category_name');
             $table->timestamps();
         });
+        DB::table('category')->insert(
+            array(
+                'category_name' => ''
+            )
+        );
     }
 
     /**

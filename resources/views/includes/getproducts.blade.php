@@ -1,5 +1,6 @@
 
-
+<div class="alert" id="table-alert" style="display: none" role="alert">
+</div>
 <div class="p-3 mb-5 bg-white rounded">
     <table id="products-table" class="table-bordered table table-striped table-hover">
         <thead class="thead-light">
@@ -20,11 +21,12 @@
         </tfoot>
     </table>
 </div>
-<button class="btn btn-primary" id="refresh">Refresh</button>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/select/1.3.1/css/select.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
 <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js"></script>
 <script>
 var $table;
 $(document).ready(function(){
@@ -48,6 +50,7 @@ $(document).ready(function(){
             "type": "GET",
             "dataType": 'json',
             "dataSrc": function (d) {
+                console.log(d);
                 var $data = [];
                 d.forEach(function(entry) {
                     entry.unshift("");
@@ -58,6 +61,62 @@ $(document).ready(function(){
                 });
                 return $data;
             }
+        },
+        "dom": '<"top"Bf>irt<"bottom"lp><"clear">',
+        buttons: [
+            {
+                text: 'Create Product',
+                attr: {
+                    class: 'btn btn-primary',
+                    onclick: "location.href = '{{ url('dashboard/createproduct') }}'"
+                },
+                action: function ( e, dt, node, config ) {
+                    return true;
+                }
+            },
+            {
+                text: 'Delete',
+                attr: {
+                    class: 'btn btn-danger',
+                    id: 'delete',
+                    style: "display: none"
+                },
+                action: function ( e, dt, node, config ) {
+                    var $product_id = [];
+                    for(var i = 0; i < $table.rows('.selected').data().length; i++){
+                        $product_id.push(this.rows('.selected').data()[i][1]);
+                    }
+                    $.ajax({
+                        url: "{{ url('dashboard/deleteproduct') }}",
+                        method: "POST",
+                        data: {
+                            _token: "{{ csrf_token() }}",
+                            product_id: $product_id
+                        },
+                        success: function(d){
+                            $("#delete").fadeOut(500);
+                            $("#table-alert").addClass("alert-" + d["status"]);
+                            $("#table-alert").text(d["msg"]);
+                            $("#table-alert").slideDown(500);
+                            setTimeout(function () {
+                                $("#table-alert").slideUp(500);
+                            }, 5000);
+                            $table.ajax.reload();
+                        }
+                    })
+                }
+            }
+        ]
+    });
+    $table.on('select', function(e,dt,type,indexes){
+        var length = $table.rows('.selected').data().length;
+        if(length > 0){
+            $("#delete").fadeIn(500);
+        }
+    }).on('deselect', function(e,dt,type,indexes){
+        var length = $table.rows('.selected').data().length;
+        if(length <= 0){
+            $("#delete").fadeOut(500);
         }
     });
 });

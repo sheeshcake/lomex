@@ -55,7 +55,7 @@ class RegisterController extends Controller
                 if(Auth::check()){
                     return redirect('dashboard');
                 }else{
-                    return View::make('login');
+                    return View::make('register');
                 }
                 break;
     
