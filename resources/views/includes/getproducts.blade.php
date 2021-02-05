@@ -50,7 +50,6 @@ $(document).ready(function(){
             "type": "GET",
             "dataType": 'json',
             "dataSrc": function (d) {
-                console.log(d);
                 var $data = [];
                 d.forEach(function(entry) {
                     entry.unshift("");

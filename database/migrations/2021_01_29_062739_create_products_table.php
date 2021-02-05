@@ -17,7 +17,7 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('product_name');
             $table->string('product_ribbon')->default('');
-            $table->string('product_description')->default('');
+            $table->text('product_description')->default('');
             $table->string('product_discount');
             $table->string('product_sale_price');
             $table->string('product_quantity_in_units');
