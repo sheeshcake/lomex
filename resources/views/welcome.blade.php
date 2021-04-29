@@ -17,7 +17,41 @@
     </head>
     <body id="page-top">
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="overlay">
+            <h1>Start Shopping</h1>
+            <h6>(SCROLL DOWN)</h6>
+            <a href="#products" class="js-scroll-trigger">
+                <svg class="arrows">
+                    <path class="a1" d="M0 0 L30 32 L60 0"></path>
+                    <path class="a2" d="M0 20 L30 52 L60 20"></path>
+                    <path class="a3" d="M0 40 L30 72 L60 40"></path>
+                </svg>
+            </a>
+
+        </div>
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="{{ url('/') }}/img/bridgestone.jpg" alt="Bridgestone">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ url('/') }}/img/dunlop.jpg" alt="Dunlop">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ url('/') }}/img/Continental.jpg" alt="Continental">
+                </div>
+                <div class="carousel-item">
+                 <img class="d-block w-100" src="{{ url('/') }}/img/linglong.jpg" alt="Linglong">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ url('/') }}/img/Hankook.jpg" alt="Hankook">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ url('/') }}/img/Toyo.jpg" alt="Toyo">
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark sticky-top" id="mainNav">
             <div class="container">
                 <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="{{url('/img/lomex-logo.png')}}" alt="" /></a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,23 +60,29 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ml-auto">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#products">Products</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Team</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+                        <b><li class="nav-item"><a class="nav-link js-scroll-trigger" href="#products">Products</a></li></b>
+                        <b><li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li></b>
+                        <b><li class="nav-item"><a class="nav-link js-scroll-trigger" href="#news">News</a></li></b>
+                        <b><li class="nav-item"><a class="nav-link js-scroll-trigger" href="#appreciation">Featured</a></li></b>
+                        <b><li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li></b>
+                        <b><li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li></b>
                     </ul>
                 </div>
             </div>
+            
         </nav>
+        
         <!-- Masthead-->
-        <header class="masthead">
-            <div class="container">
-                <div class="masthead-subheading">Welcome To Lomex, Tireshoppe!</div>
-                <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
-                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
-            </div>
-        </header>
+        <!-- <header class="masthead"> -->
+            <!-- <div class="container">
+                <div class="masthead-subheading ">Welcome To</div>
+                <div class="masthead-heading text-uppercase mb-4">Lomex Car Tires and Accessories</div>
+                <h3 class="masthead-sub">Car Tires and Accessories</h3>
+                
+            </div> -->
+        <!-- </header> -->
+        <!-- Products Grid-->
+        @include('includes/products')
         <!-- Services-->
         <section class="page-section" id="services">
             <div class="container">
@@ -52,12 +92,52 @@
                 </div>
             </div>
         </section>
-        <!-- Products Grid-->
-        @include('includes/products')
+        <!-- News -->
+        <section class="page-section" id="news">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">News</h2>
+                    <div class="row">
+                        <div class="col">
+                            <div class="card">
+                                <img class="card-img-top" srcset="https://bridgestonetires.com.ph/wp-content/uploads/2021/04/Bridgestone-April29-v1.jpeg 1200w, https://bridgestonetires.com.ph/wp-content/uploads/2021/04/Bridgestone-April29-v1-980x513.jpeg 980w, https://bridgestonetires.com.ph/wp-content/uploads/2021/04/Bridgestone-April29-v1-480x251.jpeg 480w" alt="Card image cap">
+                                <div class="card-body">
+                                    <a href="https://bridgestonetires.com.ph/how-to-prevent-your-car-from-overheating/">How to prevent your car from overheating</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card">
+                                <img class="card-img-top" srcset="https://bridgestonetires.com.ph/wp-content/uploads/2021/04/Bridgestone-April19-v4.jpeg 1200w, https://bridgestonetires.com.ph/wp-content/uploads/2021/04/Bridgestone-April19-v4-980x513.jpeg 980w, https://bridgestonetires.com.ph/wp-content/uploads/2021/04/Bridgestone-April19-v4-480x251.jpeg 480w" alt="Card image cap">
+                                <div class="card-body">
+                                    <a href="https://bridgestonetires.com.ph/safer-road-for-all-2021/">Bridgestone Philippines’ Safer Road for All: Always in All Ways 2021 Campaign</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="page-section" id="appreciation">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Featured</h2>
+                    <h3 class="section-subheading text-muted">We are very pleased in every purchase of our products!</h3>
+                    <div class="row">
+                        <div class="col">
+                            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLXCarTires%2Fposts%2F988095655334556&width=500&show_text=true&height=608&appId" width="500" height="608" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                            </iframe>
+                        </div>
+                        <div class="col">
+                            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLXCarTires%2Fposts%2F988002112010577&width=500&show_text=true&height=589&appId" width="500" height="589" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>          
         <!-- About-->
         @include('includes/about')
         <!-- Team-->
-        @include('includes/team')
         <!-- Clients-->
         @include('includes/clients')
         <!-- Contact-->
@@ -124,5 +204,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <!-- Core theme JS-->
         <script src="{{ URL::asset('js/scripts.js') }}"></script>
+        <script>
+        </script>
     </body>
 </html>

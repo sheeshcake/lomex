@@ -102,7 +102,7 @@ $(document).ready(function(){
                             }, 5000);
                             $table.ajax.reload();
                         }
-                    })
+                    });
                 }
             }
         ]

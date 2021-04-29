@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +18,10 @@ use App\Http\Controllers\UserController;
 
 Route::group(["prefix" => "dashboard"],function () {
     Route::get('/', ['uses' => 'UserController@showDashboard']);
-    Route::get('/createproduct', ['uses' => 'UserController@createProduct'])->name('createproduct');
-    Route::match(['get', 'post'], '/deleteproduct', "UserController@deleteProducts")->name('deleteproduct');
-    Route::match(['get', 'post'], '/products', "UserController@getProducts")->name('products');
-    Route::match(['get', 'post'], '/editproduct', "UserController@updateProduct")->name('editproduct');
+    Route::get('/createproduct', ['uses' => 'ProductsController@createProduct'])->name('createproduct');
+    Route::match(['get', 'post'], '/deleteproduct', "ProductsController@deleteProducts")->name('deleteproduct');
+    Route::match(['get', 'post'], '/products', "ProductsController@getProducts")->name('products');
+    Route::match(['get', 'post'], '/editproduct', "ProductsController@updateProduct")->name('editproduct');
     Route::get('/logout', ['uses' => 'UserController@logout']);
 });
 Route::match(['get', 'post'], '/register', "RegisterController@registerController")->name('register');

@@ -18,7 +18,7 @@
                     <div class="d-flex justify-content-center">
                         <button class="btn btn-primary" style="width: 80%;">
                             View Details
-                            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                            <i class="fa fa-chevron-right" aria-hidden="true" href="product-details.php"></i>
                         </button>
                      </div>
                 </div>

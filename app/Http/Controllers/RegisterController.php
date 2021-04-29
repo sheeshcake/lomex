@@ -30,13 +30,9 @@ class RegisterController extends Controller
                 else{
                     $data = $request->input();
                     try{
-                        $user = new User;
-                        $user->f_name = $data['f_name'];
-                        $user->l_name = $data['l_name'];
-                        $user->username = $data['username'];
-                        $user->email = $data['email'];
-                        $user->password = Hash::make($data['password']);
-                        $user->save();
+                        User::create($request->merge([
+                            'password' => Hash::make($data["password"]),
+                        ])->all());
                         return redirect('login')->withInput($request->input())->with([
                             'msg' => 'User is Registered!.',
                             'status' => 'success'
