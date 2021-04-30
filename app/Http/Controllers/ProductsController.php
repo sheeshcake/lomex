@@ -9,7 +9,13 @@ use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
-    public function getProducts(Request $request){
+
+    
+    public function ShowProducts(){
+        return view("layout.getproducts");
+    }
+
+    public function GetProducts(Request $request){
         if($request->ajax()){
             $products = Products::select('*')
                         ->join('category','products.category_id', "=", "category.id")
@@ -29,59 +35,20 @@ class ProductsController extends Controller
             return redirect(\URL::previous());
         }
     }
-    public function updateProduct(Request $request){
-        switch ($request->method()) {
-            case 'POST':
-                if($request->ajax()){
-                    $data = $request->input();
-                    if($data["p_description"] == NULL){
-                        $data["p_description"] = "";
-                    }
-                    if($data["p_ribbon"] == NULL){
-                        $data["p_ribbon"] = "";
-                    }
-                    $products = Products::where('id', $data["id"])
-                    ->update([
-                        'product_name' => $data["p_name"],
-                        'product_ribbon' => $data["p_ribbon"],
-                        'product_description' => $data["p_description"],
-                        'product_discount' => $data["p_discount"],
-                        'product_sale_price' => $data["p_sale_price"],
-                        'product_quantity_in_units' => $data["p_quantity_in_units"],
-                        'product_base_unit' => $data["p_base_unit"],
-                        'product_price' => $data["p_price"]
-                    ]);
-                    if($products){
-                        $d=[
-                            'status'=>'success',
-                            'msg'=>'Product Updated!'
-                        ];
-                        return $d;
-                    }else{
-                        $d=[
-                            'status'=>'success',
-                            'msg'=>'Error Updating Product!'
-                        ];
-                        return $d;
-                    }
-                }else{
-                    return redirect(\URL::previous());
-                }
-                break;
-            case 'GET':
-                $products = Products::select('*')
-                    ->join('category','products.category_id', "=", "category.id")
-                    ->join('images', 'images.product_id', "=", "products.id")
-                    ->get()->toArray();
-                var_dump($request);
-                // return view('home');
-                break;
-            default:
-                return redirect(\URL::previous());
-                break;
-        }
+
+    public function ShowProduct($id){
+        $product = Products::join("images", "images.product_id", "=", "products.id")
+                        ->where("products.id", "=", $id)->get();
+        return view("layout.editproduct")->with("data", [
+            "product" => $product
+        ]);
     }
-    public function createProduct(Request $request){
+
+    public function UpdateProduct(Request $request){
+    }
+
+
+    public function CreateProduct(Request $request){
         $newproduct = new Products;
         $newproduct->product_name = "New Product";
         $newproduct->product_ribbon = "";
@@ -98,43 +65,10 @@ class ProductsController extends Controller
         $newimage->image_source = "noimage.png";
         $newimage->product_id = $newproduct->id;
         $newimage->save();
-        $products = Products::select('*')
-            ->join('category','products.category_id', "=", "category.id")
-            ->join('images', 'images.product_id', "=", "products.id")
-            ->where("products.id", "=", $newproduct->id)
-            ->get()->toArray();
-        return redirect('dashboard?p=editproduct&id=' . $newproduct->id);
-        // return redirect(\URL::previous());
+        return redirect('/products/product/' . $newproduct->id);
     }
-    public function deleteProducts(Request $request){
-        switch ($request->method()) {
-            case 'POST':
-                if($request->ajax()){
-                    $data = [];
-                    foreach ($request->input()["product_id"] as &$value) {
-                        $images = Images::where('product_id', $value)->delete();
-                        $products = Products::where('id', $value)->delete();
-                        if ($products && $images){
-                            $data=[
-                                'status'=>'success',
-                                'msg'=>'Product Deleted!'
-                            ];
-                        }else{
-                            $data=[
-                                'status'=>'danger',
-                                'msg'=>'Error Deleting Product!'
-                            ];
-                            break;
-                        }
-                    }
-                    return $data;
-                }else{
-                    return redirect(\URL::previous());
-                }
-                break;
-            default:
-                return redirect(\URL::previous());
-                break;
-        }
-    }
+
+
+    public function DeleteProducts(Request $request){
+    }   
 }

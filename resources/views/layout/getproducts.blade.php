@@ -1,3 +1,14 @@
+@extends("home")
+
+@section("topbar")
+    @include("layout.topbar")
+@endsection
+
+@section("sidebar")
+    @include("layout.sidebar")
+@endsection
+
+@section("content")
 
 <div class="alert" id="table-alert" style="display: none" role="alert">
 </div>
@@ -46,7 +57,7 @@ $(document).ready(function(){
         },
         order: [[ 1, 'asc' ]],
         "ajax": {
-            "url": "{{ url('dashboard/products') }}",
+            "url": "products/getproducts",
             "type": "GET",
             "dataType": 'json',
             "dataSrc": function (d) {
@@ -67,7 +78,7 @@ $(document).ready(function(){
                 text: 'Create Product',
                 attr: {
                     class: 'btn btn-primary',
-                    onclick: "location.href = '{{ url('dashboard/createproduct') }}'"
+                    onclick: "location.href = '{{ route('newproduct') }}'"
                 },
                 action: function ( e, dt, node, config ) {
                     return true;
@@ -123,7 +134,7 @@ $("#products-table").on('click','tbody tr', function (evt){
     var $cell=$(evt.target).closest('td');
     if( $cell.index() > 0){
         var data = $table.row(this).data();
-        window.location.replace("?p=editproduct&id=" + data[1]);
+        window.location.replace("/products/product/" + data[1]);
     }
 });
 $("#select-all").on("click", function(e) {
@@ -134,3 +145,5 @@ $("#select-all").on("click", function(e) {
     }
 });
 </script>
+
+@endsection

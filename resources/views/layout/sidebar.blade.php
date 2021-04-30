@@ -12,7 +12,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item">
-            <a class="nav-link" href="?p=dashboard">
+            <a class="nav-link" href="/dashboard">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
         </li>
@@ -22,7 +22,7 @@
                 <span>Posts</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="?p=getproducts">
+            <a class="nav-link" href="/products">
                 <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                 <span>Products</span></a>
         </li>
