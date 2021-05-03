@@ -7,6 +7,9 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserLoginController;
 use App\Http\Controllers\AdminLoginController;
+use App\Htpp\Contollers\LogoutController;
+use App\Htpp\Contollers\MainController;
+use App\Htpp\Contollers\ImagesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,7 +28,13 @@ Route::group(['middleware' => 'auth:admin'], function(){
         Route::get("/", "ProductsController@ShowProducts");
         Route::get("/newproduct", "ProductsController@CreateProduct")->name("newproduct");
         Route::get("/product/{id}", "ProductsController@ShowProduct");
-        Route::get("/getproducts", "ProductsController@GetProducts")->name("getproducts");
+        Route::get("/getproducts", "ProductsController@GetProducts")->name("getproducts");\
+        Route::post("/updateproduct", "ProductsController@UpdateProduct");
+
+        //image controller
+        Route::post("/getimages", "ImagesController@GetImages");
+        Route::post("/addimage", "ImagesController@AddImage");
+        Route::post("/removeimage", "ImagesController@RemoveImage");
     });
     Route::get("/admin", function(){
         echo "hello admin";
@@ -60,13 +69,7 @@ Route::prefix("/adminlogin")->group(function(){
     Route::post("/", "AdminLoginController@DoLogin")->name("adminlogin");
 });
 
-Route::get("/logout", function(){
-    Auth::logout();
-    Session::flush();
-    return redirect('/');
-});
+Route::get("/logout", "LogoutController@logout")->name('logout');
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', "MainController@index");

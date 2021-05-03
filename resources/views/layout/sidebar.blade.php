@@ -4,7 +4,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" >
                 <div class="sidebar-brand-icon">
-                    <img src="img/lomex-logo.png" alt="" width="90vw">
+                    <img src="{{ url('/') }}/img/lomex-logo.png" alt="" width="90vw">
                 </div>
             </a>
         <!-- Divider -->

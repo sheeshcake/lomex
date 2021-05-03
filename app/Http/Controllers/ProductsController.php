@@ -37,15 +37,37 @@ class ProductsController extends Controller
     }
 
     public function ShowProduct($id){
-        $product = Products::join("images", "images.product_id", "=", "products.id")
-                        ->where("products.id", "=", $id)->get();
+        $product = Products::where("id", "=", $id)->get()->toArray();
+        $product[0]["images"] = Images::where("product_id", "=", $id)->get()->toArray();
         return view("layout.editproduct")->with("data", [
             "product" => $product
         ]);
     }
 
     public function UpdateProduct(Request $request){
-    }
+        $data = Products::where("id", "=", $request->id)
+                ->update([
+                    "product_name" => $request->p_name,
+                    "product_ribbon" => $request->p_ribbon,
+                    "product_description" => $request->p_description,
+                    "product_discount" => $request->p_discount,
+                    "product_sale_price" => $request->p_sale_price,
+                    "product_quantity_in_units" => $request->p_quantity_in_units,
+                    "product_base_unit" => $request->p_base_unit,
+                    "product_price" => $request->p_price
+                ]);
+        if($data){
+            echo json_encode([
+                "alert" => "Product Updated!",
+                "status" => "success"
+            ]);
+        }else{
+            echo json_encode([
+                "alert" => "Error on updating",
+                "status" => "danger"
+            ]);
+        }
+    }   
 
 
     public function CreateProduct(Request $request){

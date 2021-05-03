@@ -18,7 +18,6 @@
     <body id="page-top">
         <!-- Navigation-->
         <div class="overlay">
-            <h1>Start Shopping</h1>
             <h6>(SCROLL DOWN)</h6>
             <a href="#products" class="js-scroll-trigger">
                 <svg class="arrows">
@@ -35,19 +34,31 @@
                     <img class="d-block w-100" src="{{ url('/') }}/img/bridgestone.jpg" alt="Bridgestone">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="{{ url('/') }}/img/dunlop.jpg" alt="Dunlop">
-                </div>
-                <div class="carousel-item">
                     <img class="d-block w-100" src="{{ url('/') }}/img/Continental.jpg" alt="Continental">
                 </div>
                 <div class="carousel-item">
-                 <img class="d-block w-100" src="{{ url('/') }}/img/linglong.jpg" alt="Linglong">
+                    <img class="d-block w-100" src="{{ url('/') }}/img/dunlop.jpg" alt="Dunlop">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ url('/') }}/img/falken.jpg" alt="Falken">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ url('/') }}/img/linglong.jpg" alt="Linglong">
                 </div>
                 <div class="carousel-item">
                     <img class="d-block w-100" src="{{ url('/') }}/img/Hankook.jpg" alt="Hankook">
                 </div>
                 <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ url('/') }}/img/kumho.jpg" alt="Kumho">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ url('/') }}/img/yokohama.jpg" alt="Yokohama">
+                </div>
+                <div class="carousel-item">
                     <img class="d-block w-100" src="{{ url('/') }}/img/Toyo.jpg" alt="Toyo">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ url('/') }}/img/firestone.jpg" alt="Firestone">
                 </div>
             </div>
         </div>
@@ -64,23 +75,20 @@
                         <b><li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li></b>
                         <b><li class="nav-item"><a class="nav-link js-scroll-trigger" href="#news">News</a></li></b>
                         <b><li class="nav-item"><a class="nav-link js-scroll-trigger" href="#appreciation">Featured</a></li></b>
-                        <b><li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li></b>
-                        <b><li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li></b>
+                        <!-- <b><li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li></b> -->
+                        @if (Auth::guard('user'))
+                            <b><li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-5 fa-shopping-basket" aria-hidden="true"></i>Cart</a></li></b>
+                            <b><li class="nav-item"><a href="{{ route('logout') }}" class="nav-link"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li></b>
+                        @else
+                            <b><li class="nav-item"><a href="{{ route('login') }}" class="nav-link"><i class="fa fa-user" aria-hidden="true"></i>Login</a></li></b>
+                        @endif
+                        <!-- <b><li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li></b> -->
                     </ul>
                 </div>
             </div>
             
         </nav>
         
-        <!-- Masthead-->
-        <!-- <header class="masthead"> -->
-            <!-- <div class="container">
-                <div class="masthead-subheading ">Welcome To</div>
-                <div class="masthead-heading text-uppercase mb-4">Lomex Car Tires and Accessories</div>
-                <h3 class="masthead-sub">Car Tires and Accessories</h3>
-                
-            </div> -->
-        <!-- </header> -->
         <!-- Products Grid-->
         @include('includes/products')
         <!-- Services-->
@@ -97,6 +105,7 @@
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">News</h2>
+                    <h3 class="section-subheading text-muted">Get the latest news and updates.</h3>
                     <div class="row">
                         <div class="col">
                             <div class="card">
@@ -124,19 +133,18 @@
                     <h2 class="section-heading text-uppercase">Featured</h2>
                     <h3 class="section-subheading text-muted">We are very pleased in every purchase of our products!</h3>
                     <div class="row">
-                        <div class="col">
+                        <!-- <div class="col">
                             <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLXCarTires%2Fposts%2F988095655334556&width=500&show_text=true&height=608&appId" width="500" height="608" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
                             </iframe>
                         </div>
                         <div class="col">
                             <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLXCarTires%2Fposts%2F988002112010577&width=500&show_text=true&height=589&appId" width="500" height="589" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
         </section>          
         <!-- About-->
-        @include('includes/about')
         <!-- Team-->
         <!-- Clients-->
         @include('includes/clients')
