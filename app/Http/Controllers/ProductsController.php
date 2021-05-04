@@ -45,10 +45,12 @@ class ProductsController extends Controller
     }
 
     public function UpdateProduct(Request $request){
+        // dd($request);
         $data = Products::where("id", "=", $request->id)
                 ->update([
                     "product_name" => $request->p_name,
-                    "product_ribbon" => $request->p_ribbon,
+                    "product_type" => $request->p_type,
+                    "product_ribbon" => $request->p_ribbon == null ? " " : $request->p_ribbon,
                     "product_description" => $request->p_description,
                     "product_discount" => $request->p_discount,
                     "product_sale_price" => $request->p_sale_price,
@@ -73,6 +75,7 @@ class ProductsController extends Controller
     public function CreateProduct(Request $request){
         $newproduct = new Products;
         $newproduct->product_name = "New Product";
+        $newproduct->product_type = "";
         $newproduct->product_ribbon = "";
         $newproduct->product_description = "";
         $newproduct->product_discount = "0";

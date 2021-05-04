@@ -19,3 +19,14 @@
     gap: 5px;
     
   }
+
+.product-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 5px;
+
+}
+
+.p-image-container{
+    
+}

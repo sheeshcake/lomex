@@ -24,7 +24,6 @@
     <div class="product-name">
         <h2><b id="p-name">{{ $data['product'][0]["product_name"] }}</b></h2>
     </div>
-        <input type="number" name="id" id="id" value="{{ $data['product'][0]['id'] }}" hidden>
         <div class="card" style="border-radius: 0 !important;">
             <div class="card-section overflow-auto">
                 <div class="container">
@@ -47,12 +46,19 @@
                                 </div>
                                 <form id="product_form">
                                 @csrf
+                                <input type="number" name="id" id="id" value="{{ $data['product'][0]['id'] }}" hidden>
                                 <div class="card-body border-top">
                                     <div class="row my-3">
                                         <div class="col">
                                             <div class="form-group mx-1">
                                                 <label for="p-nameinput">Product Name</label>
                                                 <input class="form-control" id="p-nameinput" name="p_name" type="text" value="{{ $data['product'][0]['product_name'] }}">
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group mx-1">
+                                                <label for="p-typeinput">Product Type</label>
+                                                <input class="form-control" id="p-typeinput" name="p_type" type="text" value="{{ $data['product'][0]['product_type'] }}">
                                             </div>
                                         </div>
                                         <div class="col-3">

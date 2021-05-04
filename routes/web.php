@@ -10,6 +10,7 @@ use App\Http\Controllers\AdminLoginController;
 use App\Htpp\Contollers\LogoutController;
 use App\Htpp\Contollers\MainController;
 use App\Htpp\Contollers\ImagesController;
+use App\Http\Controllers\ProductDetailsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,7 +46,11 @@ Route::group(['middleware' => 'auth:user'], function(){
     Route::get("/user", function(){
         echo "hello user";
     });
+    
 });
+
+
+Route::get("/product/{id}", "ProductDetailsController@GetProductDetails");
 
 //Users Functions
 Route::prefix("/register")->group(function(){

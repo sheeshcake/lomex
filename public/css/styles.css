@@ -69,13 +69,13 @@ html {
     align-items: center;
 }
 
-.card {
+.p-card {
     background-image: url("/img/product-background.jpg");
     background-size: cover;
     transition: transform .2s;
 }
 
-.card:hover {
+.p-card:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     z-index: 100;
     transform: scale(1.2);
