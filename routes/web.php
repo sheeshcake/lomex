@@ -31,11 +31,19 @@ Route::group(['middleware' => 'auth:admin'], function(){
         Route::get("/product/{id}", "ProductsController@ShowProduct");
         Route::get("/getproducts", "ProductsController@GetProducts")->name("getproducts");\
         Route::post("/updateproduct", "ProductsController@UpdateProduct");
+        Route::post("/deleteproduct", "ProductsController@DeleteProducts");
 
         //image controller
         Route::post("/getimages", "ImagesController@GetImages");
         Route::post("/addimage", "ImagesController@AddImage");
         Route::post("/removeimage", "ImagesController@RemoveImage");
+    });
+    Route::prefix('/news')->group(function(){
+        Route::get("/", "NewsController@ShowAllNews");
+        Route::get("/getnews", "NewsController@GetNews");
+        Route::get("/shownews/{id}", "NewsController@ShowNews");
+        Route::get("/createnews", "NewsController@CreateNews");
+        Route::post("/updatenews", "NewsController@UpdateNews");
     });
     Route::get("/admin", function(){
         echo "hello admin";

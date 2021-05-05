@@ -17,17 +17,16 @@ class ProductsController extends Controller
 
     public function GetProducts(Request $request){
         if($request->ajax()){
-            $products = Products::select('*')
-                        ->join('category','products.category_id', "=", "category.id")
-                        ->join('images', 'images.product_id', "=", "products.id")
-                        ->get()->toArray();
+            $products = Products::all()->toArray();
             $allproducts = [];
             $counter = 0;
             foreach($products as $data){
-                $allproducts[$counter][0] = $data["product_id"];
-                $allproducts[$counter][1] = $data["image_source"];
+                $image = Images::where("product_id", "=", $data["id"])
+                                ->get()->toArray();
+                $allproducts[$counter][0] = $data["id"];
+                $allproducts[$counter][1] = $image[0]["image_source"];
                 $allproducts[$counter][2] = $data["product_name"];
-                $allproducts[$counter][3] = $data["category_name"];
+                $allproducts[$counter][3] = "";
                 $counter++;
             }
             return json_encode($allproducts);
@@ -95,5 +94,12 @@ class ProductsController extends Controller
 
 
     public function DeleteProducts(Request $request){
+        foreach($request->product_id as $id){
+            Products::where("id", "=", $id)->delete();
+        }
+        return json_encode([
+            "status" => "success",
+            "msg" => "Product Deleted!"
+        ]);
     }   
 }

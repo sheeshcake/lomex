@@ -17,9 +17,14 @@
                 <span>Dashboard</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="?p=getposts">
+            <a class="nav-link" href="/news">
                 <i class="fa fa-newspaper-o" aria-hidden="true"></i>
-                <span>Posts</span></a>
+                <span>News</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/featured">
+                <i class="fa fa-certificate" aria-hidden="true"></i>
+                <span>Featured</span></a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/products">

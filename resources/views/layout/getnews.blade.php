@@ -17,18 +17,16 @@
         <thead class="thead-light">
             <th><input type="checkbox" class="input-form" id="select-all"></th>
             <th>ID</th>
-            <th>Image</th>
-            <th>Product Details</th>
-            <th>Products Category</th>
+            <th></th>
+            <th>News Title</th>
         </thead>
         <tbody>
         </tbody>
         <tfoot>
             <th></th>
             <th>ID</th>
-            <th>Image</th>
-            <th>Product Details</th>
-            <th>Products Category</th>
+            <th></th>
+            <th>NewsTitle</th>
         </tfoot>
     </table>
 </div>
@@ -57,7 +55,7 @@ $(document).ready(function(){
         },
         order: [[ 1, 'asc' ]],
         "ajax": {
-            "url": "products/getproducts",
+            "url": "news/getnews",
             "type": "GET",
             "dataType": 'json',
             "dataSrc": function (d) {
@@ -65,7 +63,7 @@ $(document).ready(function(){
                 var $data = [];
                 d.forEach(function(entry) {
                     entry.unshift("");
-                    entry[2] = "<img width='50vw' class='product-image mx-auto d-block' src='img/products/" + entry[2] + "'>";
+                    entry[2] = "<img width='50vw' class='product-image mx-auto d-block' src='{{ url('/') }}/img/news/" + entry[2] + "'>";
                     entry[3] = "<p class='text-center'>" + entry[3] + "</p>";
                     entry[4] = "<p class='text-center'>" + entry[4] + "</p>";
                     $data.push(entry);
@@ -79,7 +77,7 @@ $(document).ready(function(){
                 text: 'Create Product',
                 attr: {
                     class: 'btn btn-primary',
-                    onclick: "location.href = '{{ route('newproduct') }}'"
+                    onclick: "location.href = 'news/createnews'"
                 },
                 action: function ( e, dt, node, config ) {
                     return true;
@@ -98,7 +96,7 @@ $(document).ready(function(){
                         $product_id.push(this.rows('.selected').data()[i][1]);
                     }
                     $.ajax({
-                        url: "{{ url('products/deleteproduct') }}",
+                        url: "{{ url('news/deletenews') }}",
                         method: "POST",
                         data: {
                             _token: "{{ csrf_token() }}",
@@ -136,7 +134,7 @@ $("#products-table").on('click','tbody tr', function (evt){
     var $cell=$(evt.target).closest('td');
     if( $cell.index() > 0){
         var data = $table.row(this).data();
-        window.location.replace("/products/product/" + data[1]);
+        window.location.replace("/news/shownews/" + data[1]);
     }
 });
 $("#select-all").on("click", function(e) {

@@ -108,23 +108,20 @@
                     <h2 class="section-heading text-uppercase">News</h2>
                     <h3 class="section-subheading text-muted">Get the latest news and updates.</h3>
                     <div class="row">
+                        @foreach($data['news'] as $news)
                         <div class="col">
                             <div class="card">
-                                <img class="card-img-top" srcset="https://bridgestonetires.com.ph/wp-content/uploads/2021/04/Bridgestone-April29-v1.jpeg 1200w, https://bridgestonetires.com.ph/wp-content/uploads/2021/04/Bridgestone-April29-v1-980x513.jpeg 980w, https://bridgestonetires.com.ph/wp-content/uploads/2021/04/Bridgestone-April29-v1-480x251.jpeg 480w" alt="Card image cap">
+                                <img class="card-img-top" height="300px" src="{{ url('/') }}/img/news/{{ $news['news_image'] }}" alt="Card image cap">
                                 <div class="card-body">
-                                    <a href="https://bridgestonetires.com.ph/how-to-prevent-your-car-from-overheating/">How to prevent your car from overheating</a>
+                                    <a href="{{ $news['news_url'] }}">{{ $news['news_title'] }}</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="card">
-                                <img class="card-img-top" srcset="https://bridgestonetires.com.ph/wp-content/uploads/2021/04/Bridgestone-April19-v4.jpeg 1200w, https://bridgestonetires.com.ph/wp-content/uploads/2021/04/Bridgestone-April19-v4-980x513.jpeg 980w, https://bridgestonetires.com.ph/wp-content/uploads/2021/04/Bridgestone-April19-v4-480x251.jpeg 480w" alt="Card image cap">
-                                <div class="card-body">
-                                    <a href="https://bridgestonetires.com.ph/safer-road-for-all-2021/">Bridgestone Philippines’ Safer Road for All: Always in All Ways 2021 Campaign</a>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
+                </div>
+                <div class="my-3 d-flex justify-content-center">
+                        {!! $data['news']->links("pagination::bootstrap-4") !!}
                 </div>
             </div>
         </section>
@@ -214,6 +211,14 @@
         <!-- Core theme JS-->
         <script src="{{ URL::asset('js/scripts.js') }}"></script>
         <script>
+            $(document).ready(function(){
+                var url_string = window.location.href;
+                var url = new URL(url_string);
+                var page = url.searchParams.get("page");
+                if(page){
+                    document.getElementById("news").scrollIntoView();
+                }
+            })
         </script>
     </body>
 </html>

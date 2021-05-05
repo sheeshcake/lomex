@@ -3,19 +3,25 @@
 }
 .image-area {
     position: relative;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
 }
 .image-area img{
-    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
     height: 100%;
+    display: block;
 }
 
 .AClass{
     right:0px;
     position: absolute;
 }
+
 .grid-container {
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto auto;
     gap: 5px;
     
   }
@@ -28,5 +34,9 @@
 }
 
 .p-image-container{
-    
+
+}
+
+.card-product img{
+    width: 70%;
 }
