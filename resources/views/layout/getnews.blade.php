@@ -74,7 +74,7 @@ $(document).ready(function(){
         "dom": '<"top"Bf>irt<"bottom"lp><"clear">',
         buttons: [
             {
-                text: 'Create Product',
+                text: 'Create News',
                 attr: {
                     class: 'btn btn-primary',
                     onclick: "location.href = 'news/createnews'"

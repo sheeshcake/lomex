@@ -11,6 +11,7 @@ use App\Htpp\Contollers\LogoutController;
 use App\Htpp\Contollers\MainController;
 use App\Htpp\Contollers\ImagesController;
 use App\Http\Controllers\ProductDetailsController;
+use App\Http\Controllers\FeaturedController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,6 +48,14 @@ Route::group(['middleware' => 'auth:admin'], function(){
     });
     Route::get("/admin", function(){
         echo "hello admin";
+    });
+
+    Route::prefix("/featured")->group(function(){
+        Route::get("/", "FeaturedController@AllFeatured");
+        Route::get("/getfeatured", "FeaturedController@GetFeatured");
+        Route::get("/showfeatured/{id}", "FeaturedController@ShowFeatured");
+        Route::get("/createfeatured", "FeaturedController@CreateFeatured");
+        Route::post("/updatefeatured", "FeaturedController@UpdateFeatured");
     });
 });
 

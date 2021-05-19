@@ -31,7 +31,6 @@
 				<div class="card-header">
 					<h1>{{ $data["product"][0]["product_name"] }}</h1>
 					<h3>{{ $data["product"][0]["product_type"] }}</h3>
-					<h6>₱ {{ $data["product"][0]["product_price"] }}</h6>
 				</div>
 				<div class="card-body">
 					{!! $data["product"][0]["product_description"] !!}

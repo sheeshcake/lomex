@@ -77,12 +77,12 @@
                         <b><li class="nav-item"><a class="nav-link js-scroll-trigger" href="#news">News</a></li></b>
                         <b><li class="nav-item"><a class="nav-link js-scroll-trigger" href="#appreciation">Featured</a></li></b>
                         <!-- <b><li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li></b> -->
-                        @if (Auth::guard('user'))
+                        <!-- @if (Auth::guard('user'))
                             <b><li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-5 fa-shopping-basket" aria-hidden="true"></i>Cart</a></li></b>
                             <b><li class="nav-item"><a href="{{ route('logout') }}" class="nav-link"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li></b>
                         @else
                             <b><li class="nav-item"><a href="{{ route('login') }}" class="nav-link"><i class="fa fa-user" aria-hidden="true"></i>Login</a></li></b>
-                        @endif
+                        @endif -->
                         <!-- <b><li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li></b> -->
                     </ul>
                 </div>
@@ -97,7 +97,40 @@
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Services</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="hover hover-2 text-white rounded mb-4"><img src="{{ url('/') }}/img/services/changetire.jpg" alt="">
+                            <div class="hover-overlay"></div>
+                            <div class="hover-2-content px-5 py-4">
+                                <h3 class="hover-2-title text-uppercase font-weight-bold mb-0"> <span class="font-weight-light">Change </span>Tire</h3>
+                                <p class="hover-2-description text-uppercase mb-0">Losing your grip? <br>Find new tires today here at Lomex.</p>
+                            </div>
+                        </div>
+                        <div class="hover hover-2 text-white rounded mt-4"><img src="{{ url('/') }}/img/services/vulcanizing.jpg" alt="">
+                            <div class="hover-overlay"></div>
+                            <div class="hover-2-content px-5 py-4">
+                                <h3 class="hover-2-title text-uppercase font-weight-bold mb-0"> <span class="font-weight-light">Tire </span>Vulcanizing</h3>
+                                <p class="hover-2-description text-uppercase mb-0">Vulcanizing in professional way. <br>We guarantee the safety of your tires here at Lomex.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="hover hover-2 text-white rounded mb-4"><img src="{{ url('/') }}/img/services/wheelbalance.jpg" alt="">
+                            <div class="hover-overlay"></div>
+                            <div class="hover-2-content px-5 py-4">
+                                <h3 class="hover-2-title text-uppercase font-weight-bold mb-0"> <span class="font-weight-light">Wheel </span>Balancing</h3>
+                                <p class="hover-2-description text-uppercase mb-0">Don't reinvent the wheel <br>just balance it here at Lomex.</p>
+                            </div>
+                        </div>
+                        <div class="hover hover-2 text-white rounded mt-4"><img src="{{ url('/') }}/img/services/nitrogeninflation.jpg" alt="">
+                            <div class="hover-overlay"></div>
+                            <div class="hover-2-content px-5 py-4">
+                                <h3 class="hover-2-title text-uppercase font-weight-bold mb-0"> <span class="font-weight-light">Nitrogen </span>Inflation <span class="font-weight-bold">System</span></h3>
+                                <p class="hover-2-description text-uppercase mb-0">Extend tire life <br>Save money and fuel, Drive more safely.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -131,13 +164,13 @@
                     <h2 class="section-heading text-uppercase">Featured</h2>
                     <h3 class="section-subheading text-muted">We are very pleased in every purchase of our products!</h3>
                     <div class="row">
-                        <!-- <div class="col">
-                            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLXCarTires%2Fposts%2F988095655334556&width=500&show_text=true&height=608&appId" width="500" height="608" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                        <div class="col embed-responsive" style="height: 600px">
+                            <iframe class="embed-responsive-item" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLXCarTires%2Fposts%2F988095655334556&width=500&show_text=true&height=608&appId" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
                             </iframe>
                         </div>
-                        <div class="col">
-                            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLXCarTires%2Fposts%2F988002112010577&width=500&show_text=true&height=589&appId" width="500" height="589" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-                        </div> -->
+                        <div class="col embed-responsive" style="height: 600px">
+                            <iframe class="embed-responsive-item" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLXCarTires%2Fposts%2F988002112010577&width=500&show_text=true&height=589&appId" width="500" height="589" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -151,7 +184,7 @@
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Contact Us</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h3 class="section-subheading text-muted">Lomex is here to answers your queries.</h3>
                 </div>
                 <form id="contactForm" name="sentMessage" novalidate="novalidate">
                     <div class="row align-items-stretch mb-5">

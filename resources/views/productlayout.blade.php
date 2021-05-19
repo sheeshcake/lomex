@@ -26,17 +26,18 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ml-auto">
+                        <b><li class="nav-item"><a class="nav-link js-scroll-trigger" href="/">Home</a></li></b>
                         <b><li class="nav-item"><a class="nav-link js-scroll-trigger" href="/#products">Products</a></li></b>
                         <b><li class="nav-item"><a class="nav-link js-scroll-trigger" href="/#products">Services</a></li></b>
                         <b><li class="nav-item"><a class="nav-link js-scroll-trigger" href="/#products">News</a></li></b>
                         <b><li class="nav-item"><a class="nav-link js-scroll-trigger" href="/#products">Featured</a></li></b>
                         <!-- <b><li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li></b> -->
-                        @if (Auth::guard('user'))
+                        <!-- @if (Auth::guard('user'))
                             <b><li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-5 fa-shopping-basket" aria-hidden="true"></i>Cart</a></li></b>
                             <b><li class="nav-item"><a href="{{ route('logout') }}" class="nav-link"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li></b>
                         @else
                             <b><li class="nav-item"><a href="{{ route('login') }}" class="nav-link"><i class="fa fa-user" aria-hidden="true"></i>Login</a></li></b>
-                        @endif
+                        @endif -->
                         <!-- <b><li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li></b> -->
                     </ul>
                 </div>

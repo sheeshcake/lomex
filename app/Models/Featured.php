@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Featured extends Model
 {
     use HasFactory;
+    protected $table = "featured";
+    protected $fillable = [
+        'featured_link'
+    ];
 }
