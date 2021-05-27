@@ -53,9 +53,9 @@ Route::group(['middleware' => 'auth:admin'], function(){
     Route::prefix("/featured")->group(function(){
         Route::get("/", "FeaturedController@AllFeatured");
         Route::get("/getfeatured", "FeaturedController@GetFeatured");
-        Route::get("/showfeatured/{id}", "FeaturedController@ShowFeatured");
-        Route::get("/createfeatured", "FeaturedController@CreateFeatured");
+        Route::post("/createfeatured", "FeaturedController@CreateFeatured");
         Route::post("/updatefeatured", "FeaturedController@UpdateFeatured");
+        Route::post("/deletefeatured", "FeaturedController@DeleteFeatured");
     });
 });
 

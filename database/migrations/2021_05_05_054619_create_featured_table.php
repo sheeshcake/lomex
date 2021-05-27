@@ -15,6 +15,7 @@ class CreateFeaturedTable extends Migration
     {
         Schema::create('featured', function (Blueprint $table) {
             $table->id();
+            $table->string("featured_link");
             $table->timestamps();
         });
     }
