@@ -16,6 +16,15 @@
             <div class="col">
                 <a href="https://www.toyotires.com/"><img class="img-fluid d-block mx-auto" src="{{url('/img/logos/toyo-logo.png')}}" alt="" /></a>
             </div>
+            <div class="col">
+                <a href="https://www.toyotires.com/"><img class="img-fluid d-block mx-auto" src="{{url('/img/logos/toyo-logo.png')}}" alt="" /></a>
+            </div>
+            <div class="col">
+                <a href="https://www.toyotires.com/"><img class="img-fluid d-block mx-auto" src="{{url('/img/logos/toyo-logo.png')}}" alt="" /></a>
+            </div>
+            <div class="col">
+                <a href="https://www.toyotires.com/"><img class="img-fluid d-block mx-auto" src="{{url('/img/logos/toyo-logo.png')}}" alt="" /></a>
+            </div>
         </div>
     </div>
 </div>

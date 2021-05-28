@@ -4837,6 +4837,66 @@ input[type=submit].btn-block {
     color: #fff
 }
 
+.card-hankook {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 2px solid #ee782e;
+    border-radius: 0.25rem;
+}
+
+.card-falken {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 2px solid #df0042;
+    border-radius: 0.25rem;
+}
+
+.card-linglong {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 2px solid #0c4b9d;
+    border-radius: 0.25rem;
+}
+
+.continental {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 2px solid #fe9900;
+    border-radius: 0.25rem;
+}
+
+.card-dunlop {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 2px solid rgb(255 194 2);
+    border-radius: 0.25rem;
+}
+
 .card {
     position: relative;
     display: flex;

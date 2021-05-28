@@ -14,9 +14,6 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
-
-
-
 :root {
     --blue: #007bff;
     --indigo: #6610f2;
@@ -86,11 +83,10 @@ html {
 }
 
 .product-image {
-    left: -40px;
+    left: 40px;
     position: relative;
     transition: transform .5s;
-    width: 80%;
-    height: 100%;
+    width: 100%;
 }
 
 .product-image:hover {
@@ -2538,6 +2534,36 @@ fieldset:disabled a.btn {
     pointer-events: none;
 }
 
+.btn-primary-hankook {
+    color: #fff;
+    background-color: #101010;
+    border-color: #ee782e;
+}
+
+.btn-primary-falken {
+    color: #fff;
+    background-color: #004389;
+    border-color: #df0042;
+}
+
+.btn-primary-linglong {
+    color: #000;
+    background-color: #6db942;
+    border-color: #0c4b9d;
+}
+
+.btn-primary-continental {
+    color: #000;
+    background-color: #fe9900;
+    border-color: #000000;
+}
+
+.btn-primary-dunlop {
+    color: #000;
+    background-color: #ffc202;
+    border-color: #dc3545;
+}
+
 .btn-primary {
     color: #fff;
     background-color: #dc3545;
@@ -2564,6 +2590,7 @@ fieldset:disabled a.btn {
     background-color: #dc3545;
     border-color: #da5764;
 }
+
 .btn-primary:not(:disabled):not(.disabled):active,
 .btn-primary:not(:disabled):not(.disabled).active,
 .show>.btn-primary.dropdown-toggle {
@@ -4776,6 +4803,66 @@ input[type=button].btn-block {
     color: rgb(0, 0, 0);
 }
 
+.card-hankook {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 2px solid #ee782e;
+    border-radius: 0.25rem;
+}
+
+.card-falken {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 2px solid #df0042;
+    border-radius: 0.25rem;
+}
+
+.card-linglong {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 2px solid #0c4b9d;
+    border-radius: 0.25rem;
+}
+
+.card-continental {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 2px solid #fe9900;
+    border-radius: 0.25rem;
+}
+
+.card-dunlop {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 2px solid rgb(255 194 2);
+    border-radius: 0.25rem;
+}
+
 .card {
     position: relative;
     display: flex;
@@ -6477,65 +6564,85 @@ a.close.disabled {
     color: #212529;
 }
 
-.overlay { 
-    color:#fff;
-    position:absolute;
-    z-index:12;
-    top:80%;
-    left:0;
-    width:100%;
-    text-align:center;
+.overlay {
+    color: #fff;
+    position: absolute;
+    z-index: 12;
+    top: 80%;
+    left: 0;
+    width: 100%;
+    text-align: center;
 }
-@media ( max-width : 960px){
-    .overlay{
-        top:80%;
+
+@media ( max-width: 960px) {
+    .overlay {
+        top: 80%;
     }
 }
 
 .arrows {
     width: 60px;
-	height: 80px;
+    height: 80px;
     margin-bottom: 0px;
 }
 
 .arrows path {
-	stroke: #dc3545;
-	fill: transparent;
-	stroke-width: 5px;	
-	animation: arrow 2s infinite;
-	-webkit-animation: arrow 2s infinite; 
+    stroke: #dc3545;
+    fill: transparent;
+    stroke-width: 5px;
+    animation: arrow 2s infinite;
+    -webkit-animation: arrow 2s infinite;
 }
 
-@keyframes arrow
+@keyframes arrow {
+    0% {
+        opacity: 0
+    }
+    40% {
+        opacity: 1
+    }
+    80% {
+        opacity: 0
+    }
+    100% {
+        opacity: 0
+    }
+}
+
+@-webkit-keyframes arrow
+/*Safari and Chrome*/
+
 {
-0% {opacity:0}
-40% {opacity:1}
-80% {opacity:0}
-100% {opacity:0}
+    0% {
+        opacity: 0
+    }
+    40% {
+        opacity: 1
+    }
+    80% {
+        opacity: 0
+    }
+    100% {
+        opacity: 0
+    }
 }
-
-@-webkit-keyframes arrow /*Safari and Chrome*/
-{
-0% {opacity:0}
-40% {opacity:1}
-80% {opacity:0}
-100% {opacity:0}
-}
-
 
 .arrows path.a1 {
-	animation-delay:-1s;
-	-webkit-animation-delay:-1s; /* Safari 和 Chrome */
+    animation-delay: -1s;
+    -webkit-animation-delay: -1s;
+    /* Safari 和 Chrome */
 }
 
 .arrows path.a2 {
-	animation-delay:-0.5s;
-	-webkit-animation-delay:-0.5s; /* Safari 和 Chrome */
+    animation-delay: -0.5s;
+    -webkit-animation-delay: -0.5s;
+    /* Safari 和 Chrome */
 }
 
-.arrows path.a3 {	
-	animation-delay:0s;
-	-webkit-animation-delay:0s; /* Safari 和 Chrome */
+.arrows path.a3 {
+    animation-delay: 0s;
+    -webkit-animation-delay: 0s;
+    /* Safari 和 Chrome */
 }
 
 .carousel {
@@ -6570,7 +6677,7 @@ a.close.disabled {
     transition: transform 0.6s ease-in-out;
 }
 
-.carousel-item img{
+.carousel-item img {
     object-fit: cover;
     height: 100vh;
 }
