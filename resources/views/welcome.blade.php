@@ -174,9 +174,6 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="my-3 d-flex justify-content-center">
-                        {!! $data['featured']->links("pagination::bootstrap-4") !!}
-                </div>
             </div>
         </section>          
         <!-- About-->

@@ -1,5 +1,8 @@
 <div class="py-5">
-    <div class="container">
+    <div class="d-flex justify-content-center mb-3">
+        <h3>Our Partners</h3>
+    </div>
+    <div class="container mt-3">
         <div class="splide" id="splide">
             <div class="splide__track">
                 <ul class="splide__list">
