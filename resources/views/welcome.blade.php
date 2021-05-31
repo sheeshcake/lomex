@@ -15,6 +15,8 @@
         <link href="{{ URL::asset('css/styles.css') }}" rel="stylesheet" />
         <link href="{{ URL::asset('css/global.css') }}" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -99,7 +101,7 @@
                     <h2 class="section-heading text-uppercase">Services</h2>
                 </div>
                 <div class="row">
-                    <div class="col">
+                    <div class="col-12 col-md-6">
                         <div class="hover hover-2 text-white rounded mb-4"><img src="{{ url('/') }}/img/services/changetire.jpg" alt="">
                             <div class="hover-overlay"></div>
                             <div class="hover-2-content px-5 py-4">
@@ -115,7 +117,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-12 col-md-6">
                         <div class="hover hover-2 text-white rounded mb-4"><img src="{{ url('/') }}/img/services/wheelbalance.jpg" alt="">
                             <div class="hover-overlay"></div>
                             <div class="hover-2-content px-5 py-4">
@@ -164,14 +166,16 @@
                     <h2 class="section-heading text-uppercase">Featured</h2>
                     <h3 class="section-subheading text-muted">We are very pleased in every purchase of our products!</h3>
                     <div class="row">
-                        <div class="col embed-responsive" style="height: 600px">
-                            <iframe class="embed-responsive-item" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLXCarTires%2Fposts%2F988095655334556&width=500&show_text=true&height=608&appId" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                        @foreach($data['featured'] as $featured)
+                        <div class="col-md-6 embed-responsive" style="height: 600px">
+                            <iframe class="embed-responsive-item" src="{{ $featured['featured_link'] }}" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
                             </iframe>
                         </div>
-                        <div class="col embed-responsive" style="height: 600px">
-                            <iframe class="embed-responsive-item" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLXCarTires%2Fposts%2F988002112010577&width=500&show_text=true&height=589&appId" width="500" height="589" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-                        </div>
+                        @endforeach
                     </div>
+                </div>
+                <div class="my-3 d-flex justify-content-center">
+                        {!! $data['featured']->links("pagination::bootstrap-4") !!}
                 </div>
             </div>
         </section>          
