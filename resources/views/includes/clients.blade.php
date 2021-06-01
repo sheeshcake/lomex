@@ -7,28 +7,31 @@
             <div class="splide__track">
                 <ul class="splide__list">
                     <li class="splide__slide">
-                        <a href="https://yokohama-oht.com/?nr=true"><img class="img-fluid d-block mx-auto" src="{{url('/img/logos/alliance-logo.png')}}" alt="" /></a>
+                        <a href="https://bridgestonetires.com.ph/"><img class="img-fluid d-block mx-auto" src="{{url('/img/logos/bridgestone-logo.jpg')}}" alt="" /></a>
                     </li>
                     <li class="splide__slide">
-                        <a href="https://www.continental-tires.com/car"><img class="img-fluid d-block mx-auto" src="{{url('/img/logos/continental-logo.png')}}" alt="" /></a>
+                        <a href="https://www.falkentire.com/"><img class="img-fluid d-block mx-auto" src="{{url('/img/logos/falken-logo.jpg')}}" alt="" /></a>
                     </li>
                     <li class="splide__slide">
-                        <a href="https://www.dunloptires.com/"><img class="img-fluid d-block mx-auto" src="{{url('/img/logos/dunlop-logo.png')}}" alt="" /></a>
+                        <a href="http://yokohamatire.ph/"><img class="img-fluid d-block mx-auto" src="{{url('/img/logos/yokohama-logo.jpg')}}" alt="" /></a>
                     </li>
                     <li class="splide__slide">
-                        <a href="https://www.kumhotire.com/us/index.do"><img class="img-fluid d-block mx-auto" src="{{url('/img/logos/kumho-logo.png')}}" alt="" /></a>
+                        <a href="https://www.kumhotire.com/"><img class="img-fluid d-block mx-auto" src="{{url('/img/logos/kumho-logo.jpg')}}" alt="" /></a>
                     </li>
                     <li class="splide__slide">
-                        <a href="https://www.toyotires.com/"><img class="img-fluid d-block mx-auto" src="{{url('/img/logos/toyo-logo.png')}}" alt="" /></a>
+                        <a href="https://www.toyotires.com/"><img class="img-fluid d-block mx-auto" src="{{url('/img/logos/toyo-logo.jpg')}}" alt="" /></a>
                     </li>
                     <li class="splide__slide">
-                        <a href="https://www.toyotires.com/"><img class="img-fluid d-block mx-auto" src="{{url('/img/logos/toyo-logo.png')}}" alt="" /></a>
+                        <a href="https://www.continental-tires.com.ph/"><img class="img-fluid d-block mx-auto" src="{{url('/img/logos/continental-logo.jpg')}}" alt="" /></a>
                     </li>
                     <li class="splide__slide">
-                        <a href="https://www.toyotires.com/"><img class="img-fluid d-block mx-auto" src="{{url('/img/logos/toyo-logo.png')}}" alt="" /></a>
+                        <a href="https://en.linglong.cn/"><img class="img-fluid d-block mx-auto" src="{{url('/img/logos/linglong-logo.jpg')}}" alt="" /></a>
                     </li>
                     <li class="splide__slide">
-                        <a href="https://www.toyotires.com/"><img class="img-fluid d-block mx-auto" src="{{url('/img/logos/toyo-logo.png')}}" alt="" /></a>
+                        <a href="http://www.alliance-car-tyres.com/"><img class="img-fluid d-block mx-auto" src="{{url('/img/logos/alliance-logo.jpg')}}" alt="" /></a>
+                    </li>
+                    <li class="splide__slide">
+                        <a href="https://www.hankooktire.com/"><img class="img-fluid d-block mx-auto" src="{{url('/img/logos/hankook-logo.jpg')}}" alt="" /></a>
                     </li>
                 </ul>
             </div>
