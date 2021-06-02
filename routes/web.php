@@ -12,6 +12,8 @@ use App\Htpp\Contollers\MainController;
 use App\Htpp\Contollers\ImagesController;
 use App\Http\Controllers\ProductDetailsController;
 use App\Http\Controllers\FeaturedController;
+use App\Http\Controllers\BrandsController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -56,6 +58,14 @@ Route::group(['middleware' => 'auth:admin'], function(){
         Route::post("/createfeatured", "FeaturedController@CreateFeatured");
         Route::post("/updatefeatured", "FeaturedController@UpdateFeatured");
         Route::post("/deletefeatured", "FeaturedController@DeleteFeatured");
+    });
+
+    Route::prefix("/brands")->group(function(){
+        Route::get("/", "BrandsController@index")->name("admin.brands");
+        Route::post("/", "BrandsController@get")->name("admin.getbrands");
+        Route::post("/addbrand", "BrandsController@create")->name("admin.addbrand");
+        Route::post("/updatebrand", "BrandsController@update")->name("admin.updatebrand");
+        Route::post("/deletebrand", "BrandsController@delete")->name("admin.deletebrand");
     });
 });
 

@@ -6,6 +6,7 @@ use \stdClass;
 use App\Models\Products;
 use App\Models\Images;
 use Illuminate\Http\Request;
+use App\Models\Brand;
 
 class ProductsController extends Controller
 {
@@ -38,8 +39,10 @@ class ProductsController extends Controller
     public function ShowProduct($id){
         $product = Products::where("id", "=", $id)->get()->toArray();
         $product[0]["images"] = Images::where("product_id", "=", $id)->get()->toArray();
+        $brands = Brand::all();
         return view("layout.editproduct")->with("data", [
-            "product" => $product
+            "product" => $product,
+            "brands" => $brands
         ]);
     }
 
@@ -55,7 +58,8 @@ class ProductsController extends Controller
                     "product_sale_price" => $request->p_sale_price,
                     "product_quantity_in_units" => $request->p_quantity_in_units,
                     "product_base_unit" => $request->p_base_unit,
-                    "product_price" => $request->p_price
+                    "product_price" => $request->p_price,
+                    "brand_id" => $request->brand_id
                 ]);
         if($data){
             echo json_encode([
@@ -83,7 +87,6 @@ class ProductsController extends Controller
         $newproduct->product_base_unit = "0";
         $newproduct->product_price = "0";
         $newproduct->category_id = 1;
-        $newproduct->brand_id = 1;
         $newproduct->save();
         $newimage = new Images;
         $newimage->image_source = "noimage.png";

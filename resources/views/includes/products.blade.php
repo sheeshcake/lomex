@@ -7,7 +7,7 @@
         <div class="product-content">
             <div class="row p-5">
                 @foreach($data["products"] as $product)
-                <div class="card-continental p-card m-4 p-2 products">
+                <div class="card-{{ $product['brand_name'] }} p-card m-4 p-2 products">
                     <h6 class="card-title text-danger">{{ $product["product_name"] }}</h6>
                     <b class="card-subtitle mb-2 text-muted">{{ $product["product_type"] }}</b>
                     <hr>
@@ -15,13 +15,13 @@
                         @foreach($product['images'] as $index => $images)
                             @if($index == 0)
                                 <img height="200px" src="{{url('/') }}/img/products/{{ $images['image_source'] }}" alt="" class="product-image">
+                                <p>{!! wordwrap(strip_tags(Str::limit($product["product_description"], 200, $end='...')), 20, "<br/>\n") !!}</p>
                             @endif
                         @endforeach
                     </div>
-                    <p>{!! wordwrap(strip_tags(Str::limit($product["product_description"], 200, $end='...')), 20, "<br/>\n") !!}</p>
                     <hr>
                     <div class="d-flex justify-content-center">
-                        <a class="btn btn-primary-continental" style="width: 80%;" href="product/{{ $product['id'] }}">
+                        <a class="btn btn-primary-{{ $product['brand_name'] }}" style="width: 80%;" href="product/{{ $product['id'] }}">
                             View Details
                             <i class="fa fa-chevron-right" aria-hidden="true" href="product-details.php"></i>
                         </a>

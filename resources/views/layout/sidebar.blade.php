@@ -22,6 +22,11 @@
                 <span>News</span></a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.brands') }}">
+                <i class="fa fa-tag" aria-hidden="true"></i>
+                <span>Brands</span></a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="/featured">
                 <i class="fa fa-certificate" aria-hidden="true"></i>
                 <span>Featured</span></a>

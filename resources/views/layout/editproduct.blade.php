@@ -147,9 +147,16 @@
                         </div>
                         <div class="col-lg-3 mx-1">
                             <div class="card shadow">
-                                <h5 class="card-header">Category</h5>
+                                <h5 class="card-header">Brand</h5>
                                 <div class="card-body">
-                                    This is Cateogry Page
+                                    @foreach($data["brands"] as $brand)
+                                    <div class="form-check">
+                                        <input class="form-check-input" value="{{ $brand['id'] }}" type="radio" name="brand_id" id="flexRadioDefault1" @if($brand["id"] == $data['product'][0]['brand_id']) checked @endif>
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                            {{ $brand["brand_name"] }}
+                                        </label>
+                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>

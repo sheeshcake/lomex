@@ -24,7 +24,7 @@ class CreateProductsTable extends Migration
             $table->string('product_quantity_in_units');
             $table->string('product_base_unit');
             $table->string('product_price');
-            $table->foreignId('brand_id');
+            $table->foreignId('brand_id')->nullable();
             $table->foreignId('category_id');
             $table->timestamps();
         });
