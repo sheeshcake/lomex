@@ -1,4 +1,4 @@
-<section class="page-section bg-light" id="products">
+<section class="page-section bg-light-product" id="products">
     <div class="container">
         <div class="text-center">
             <h2 class="section-heading text-uppercase">Products</h2>
