@@ -6998,6 +6998,10 @@ button.bg-danger:focus {
     background-color: #bd2130 !important;
 }
 
+.bg-light-product {
+    background-image: url('/img/background-product.jpg');
+}
+
 .bg-light {
     background-color: #f8f9fa !important;
 }
